@@ -63,11 +63,16 @@ struct Program createProgram( const vector<string>& list ) {
     new_program.name = list[0];
     new_program.weight = stoi( list[1] );
     if( list.size() > 2 )
-        new_program.sub_programs.insert( new_program.sub_programs.begin(), list.begin() + 2, list.end() );
+        new_program.sub_programs.insert( 
+            new_program.sub_programs.begin(), 
+            list.begin() + 2, 
+            list.end() 
+        );
     return new_program;
 }
 
-void constructTree( vector<struct Program>& program_list, unordered_map<string, int>& program_idex ) {
+void constructTree( vector<struct Program>& program_list, 
+                    unordered_map<string, int>& program_idex ) {
     for( unsigned int i = 0; i < program_list.size(); ++i ) {
         for( unsigned int j = 0; j < program_list[i].sub_programs.size(); ++j ) {
             int child_index = program_idex[program_list[i].sub_programs[j]];
