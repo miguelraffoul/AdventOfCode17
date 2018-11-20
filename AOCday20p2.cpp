@@ -20,7 +20,7 @@ int main( void ) {
     while( getline( cin, input ) ) {
         particles.push_back( getParticle( input ) );
     }
-    cout << (particles.size() - getCollisionCount( particles, 100000 )) << endl;
+    cout << (particles.size() - getCollisionCount( particles, 1000 )) << endl;
 
     return EXIT_SUCCESS; 
 }
